@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Management</title>
+    <link rel="stylesheet" href="../css/order.css">
+</head>
+<body>
+    <header>
+        <!-- Include navbar here -->
+        <nav>
+            <ul>
+                <li><a href="admin_db.html">Admin DB</a></li>
+                <li><a href="product.html">Products</a></li>
+                <li><a href="order.html">Orders</a></li>
+                <li><a href="users.html">Users</a></li>
+                <li><a href="settings.html">Settings</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <h1>Order Management</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Order ID</th>
+                    <th>Customer Name</th>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>001</td>
+                    <td>John Doe</td>
+                    <td>Product A</td>
+                    <td>2</td>
+                    <td>Shipped</td>
+                    <td><button>Edit</button> <button>Delete</button></td>
+                </tr>
+                <tr>
+                    <td>002</td>
+                    <td>Jane Smith</td>
+                    <td>Product B</td>
+                    <td>1</td>
+                    <td>Pending</td>
+                    <td><button>Edit</button> <button>Delete</button></td>
+                </tr>
+                <!-- More rows as needed -->
+            </tbody>
+        </table>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 E-commerce Platform</p>
+    </footer>
+</body>
+</html>

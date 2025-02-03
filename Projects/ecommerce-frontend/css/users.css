@@ -1,0 +1,74 @@
+/* Users Management Styles */
+.user-list {
+  width: 100%;
+  margin: 20px 0;
+  border-collapse: collapse;
+}
+
+.user-list th,
+.user-list td {
+  padding: 12px;
+  border: 1px solid #cccccc;
+  text-align: left;
+}
+
+.user-list th {
+  background-color: #f2f2f2;
+}
+
+.user-list tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.user-list tr:hover {
+  background-color: #e9ecef;
+}
+
+.user-actions {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+
+.user-actions button {
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.user-actions button:hover {
+  background-color: #0056b3;
+}
+
+.user-form {
+  display: flex;
+  flex-direction: column;
+  margin: 20px 0;
+}
+
+.user-form input[type="text"],
+.user-form input[type="email"] {
+  margin-bottom: 10px;
+  padding: 12px;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.user-form button {
+  padding: 12px;
+  background-color: #28a745;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.user-form button:hover {
+  background-color: #218838;
+}

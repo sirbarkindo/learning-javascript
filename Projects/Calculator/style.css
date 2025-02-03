@@ -1,0 +1,79 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #000;
+}
+
+.output {
+  margin: 10px;
+}
+
+#display {
+  width: 280px;
+  height: 100px;
+  margin: 5px;
+  background-color: hsl(0, 0%, 23%);
+  border: none;
+  text-align: left;
+  font-size: 3rem;
+  color: #fff;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+
+.input {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  gap: 10px;
+  width: 300px;
+}
+
+.btn {
+  width: 60px;
+  height: 60px;
+  border: none;
+  padding: 20px;
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 50%;
+  background-color: #555;
+  transition: background-color 0.3s;
+}
+
+.btn:hover {
+  background-color: #7e7d7d;
+}
+
+.btn:active {
+  background-color: hsl(0, 0%, 59%);
+}
+
+.operators {
+  background-color: #ffba3b;
+}
+.operators:hover {
+  background-color: hsl(0, 0%, 90%);
+  color: #ffba3b;
+}
+.operators:active {
+  background-color: hsl(0, 0%, 100%);
+  color: #ffba3b;
+}
+
+.three {
+  background-color: #ddecec;
+  color: #000;
+}
+.three:hover {
+  background-color: hsl(180, 2%, 60%);
+}
+
+.three:hover {
+  background-color: hsl(180, 2%, 70%);
+}
