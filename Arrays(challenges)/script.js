@@ -142,25 +142,48 @@ const inputClosePin = document.querySelector('.form__input--pin');
 
 //  forEach on maps
 
-const currencies = new Map([
-  ['USD', 'United States dollar'],
-  ['EUR', 'Euro'],
-  ['GBP', 'Pound sterling'],
-]);
+// const currencies = new Map([
+//   ['USD', 'United States dollar'],
+//   ['EUR', 'Euro'],
+//   ['GBP', 'Pound sterling'],
+// ]);
 
-currencies.forEach(function (value, key, map) {
-  console.log(`${key}: ${value}`);
-});
+// currencies.forEach(function (value, key, map) {
+//   console.log(`${key}: ${value}`);
+// });
 
-//   forEach on set
+// //   forEach on set
 
-const currenciesSet = new Set(['USD', 'GPB', 'EUR', 'EUR', 'NGN']);
+// const currenciesSet = new Set(['USD', 'GPB', 'EUR', 'EUR', 'NGN']);
 
-console.log(currenciesSet);
+// console.log(currenciesSet);
 
-currenciesSet.forEach(function (value, _, set) {
-  console.log(`${value}:${value}`);
-  
-  
-})
+// currenciesSet.forEach(function (value, _, set) {
+//   console.log(`${value}:${value}`);
 
+// })
+
+//==== CODING CHALLENGE ====//
+
+
+
+function checkDogs(juliasDog, katesDogs) {
+  const juliasDogCorrect = juliasDog.slice();
+  juliasDogCorrect.splice(0, 1);
+  juliasDogCorrect.splice(-2);
+
+  const allDogs = [...juliasDogCorrect, ...katesDogs];
+
+  allDogs.forEach(function (dog, i) {
+    
+    if (dog >= 3) {
+      console.log(`Dog number ${i + 1} is an adult🐕‍🦺 and is ${dog} years old!`);
+    } else {
+      console.log(`Dog number ${i + 1} is still a puppy🐶`);
+    }
+    
+  });
+}
+
+checkDogs([3, 5, 2, 12, 7], [4, 1, 15, 8, 3]);
+// checkDogs([9, 10, 1, 2, 3], [5, 5, 15, 5, 4]);
