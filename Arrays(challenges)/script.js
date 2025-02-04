@@ -163,9 +163,7 @@ const inputClosePin = document.querySelector('.form__input--pin');
 
 // })
 
-//==== CODING CHALLENGE ====//
-
-
+//==== CODING CHALLENGE 1 ====//
 
 function checkDogs(juliasDog, katesDogs) {
   const juliasDogCorrect = juliasDog.slice();
@@ -175,37 +173,31 @@ function checkDogs(juliasDog, katesDogs) {
   const allDogs = [...juliasDogCorrect, ...katesDogs];
 
   allDogs.forEach(function (dog, i) {
-    
     if (dog >= 3) {
       console.log(`Dog number ${i + 1} is an adult🐕‍🦺 and is ${dog} years old!`);
     } else {
       console.log(`Dog number ${i + 1} is still a puppy🐶`);
     }
-    
   });
 }
 
 // checkDogs([3, 5, 2, 12, 7], [4, 1, 15, 8, 3]);
 // checkDogs([9, 10, 1, 2, 3], [5, 5, 15, 5, 4]);
 
-// MAP METHOD
+//========== MAP METHOD ============//
 
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
-
 const eurToUsd = 1.1;
-
 
 // const movementsUSD = movements.map(function (mov) {
 //   return mov * eurToUsd;
 // });
 
-
 const movementsUSD = movements.map(mov => mov * eurToUsd);
 
 // console.log(movements);
 // console.log(movementsUSD);
-
 
 //  USING FOR-OF
 const movementsUSDfor = [];
@@ -213,18 +205,76 @@ for (const mov of movements) movementsUSDfor.push(mov * eurToUsd);
 
 // console.log(movementsUSDfor);
 
+// const movementsDescription = movements.map(
+//   (mov, i) =>
+//     `Movement ${i + 1}: You ${mov > 0 ? 'deposited' : 'Withdrew'} ${Math.abs(
+//       mov
+//     )}`
+// );
 
-const movementsDescription = movements.map((mov, i) =>
-  `Movement ${i + 1}: You ${mov > 0 ? 'deposited' : 'Withdrew'} ${Math.abs(mov)}`
+// console.log(movementsDescription);
 
-);
+// ==========  FILTER =======//
 
-console.log(movementsDescription);
+const deposit = movements.filter(function (mov) {
+  return mov > 0;
+});
+// console.log(movements);
+// console.log(deposit);
+
+const depositFor = [];
+
+for (const mov of movements) if (mov > 0) depositFor.push(mov);
+
+// console.log(depositFor);
+
+// console.log(mov);
+
+// WITHDRWALS
+
+const withdrawals = movements.filter(mov => mov < 0);
+// console.log(withdrawalFor);
+
+const withdrawalFor = [];
+for (const mov of movements) if (mov < 0) withdrawalFor.push(mov);
+
+// console.log(withdrawalFor);
+
+// ==========   REDUCE METHOD ======= //
+
+const balance = movements.reduce((acc, curr) => acc + curr, 0);
+
+// console.log(balance);
+
+// Using for-of //
+
+let sum = 0;
+
+for (const mov of movements) sum += mov;
+// console.log(sum);
+
+// GETTING MAXIMUM VALUE USING REDUCE
+
+const max = movements.reduce((acc, mov) => {
+  if (acc > mov) return acc;
+  else return mov;
+}, movements[0]);
+
+// console.log(max);
+
+// ========= CODING CHALLENGE 2 ======== //
+
+const calAverageHumanAge = function (...ages) {
+  const humanAge = ages.map(age => (age <= 2 ? 2 * age : 16 + age * 4));
+
+  const adult = humanAge.filter(age => age >= 18);
+  console.log(humanAge);
+  console.log(adult);
+
+  const average = adult.reduce((acc, age) => acc + age, 0) / adult.length;
+
+  return average;
+};
 
 
-
-
-
-
-
-
+calAverageHumanAge(2, 3, 5)
