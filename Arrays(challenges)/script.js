@@ -309,12 +309,258 @@ const test3 = calAverageHumanAgeArr(16, 6, 10, 5, 6, 1);
 
 const firstWithdrawal = movements.find(mov => mov < 0);
 
-console.log(movements);
-console.log(firstWithdrawal);
+// console.log(movements);
+// console.log(firstWithdrawal);
 
-console.log(accounts);
+// console.log(accounts);
 
 const account = accounts.find(acc => acc.owner === 'Jessica Davis');
 
-console.log(account);
+// console.log(account);
+
+// console.log(movements);
+
+// // (Includes()): Equality only
+// console.log(movements.includes(-130));
+
+//  SOME() method: check for condition
+
+const anyDeposit = movements.some(mov => mov < 0);
+// console.log(anyDeposit);
+
+// EVERY: test all condition before returning
+
+// console.log(movements.every(mov => mov > 0));
+// console.log(account4.movements.every(mov => mov > 0));
+
+// // SEPARATE CALLBACK
+
+const deposits = mov => mov > 0;
+
+// console.log(movements.some(deposits));
+// console.log(movements.filter(deposits));
+// console.log(movements.every(deposits));
+
+// // FLAT() method: flatten arrays 1 level deep
+
+const arr = [[1, 2, 3], [4, 5, 6], 7, 8];
+
+// console.log(arr.flat());
+
+const arrDeep = [[[1, 2, [0, 0]], 3], [4, [[1, 1], 5, 6]], 7, 8];
+
+// console.log(arrDeep.flat(Infinity));
+
+const overall = accounts
+  .map(acc => acc.movements)
+  .flat()
+  .reduce((acc, mov) => acc + mov, 0);
+
+// console.log(overall);
+
+// FlatMap()
+
+const overall2 = accounts
+  .flatMap(acc => acc.movements)
+  .reduce((acc, mov) => acc + mov, 0);
+
+// console.log(overall2);
+
+// SORTING METHOD
+
+const arrSort = ['Bill', 'Jonas', 'Barkindo', 'Jeff', 'Elon'];
+// console.log(arrSort.sort());
+
+// console.log(movements);
+
+// ASSENDING ORDER
+movements.sort((a, b) => a - b);
+// console.log(movements);
+
+// DESENDING ORDER
+movements.sort((a, b) => b - a);
+
+// console.log(movements);
+
+//  filling method()
+
+const x = new Array(100);
+x.fill(1, 3, 6);
+
+// console.log(x);
+
+const y = Array.from({ length: 7 }, () => 1);
+
+// console.log(y)
+
+const z = Array.from({ length: 7 }, (_, i) => i + 1);
+
+const random = Array.from({ length: 100 }, () =>
+  Math.floor(Math.random() * 100)
+);
+
+// console.log(random);
+
+// // ==== not functional (only in the final project)  : displaying array from UI ==== //
+
+//   // first method
+// labelBalance.addEventListener('click', function () {
+//   const movementsUI = Array.from(
+//     document.querySelectorAll('.movements__value'),
+//     el => +el.textContent.replace('₤', '')
+//   );
+
+//   console.log(movementsUI)
+
+//     // Second Method
+//   const movementsUI2 = [...document.querySelectorAll('.movements__value')].map(
+//     el => +el.textContent.replace('₤', '')
+//   );
+//   console.log(movementsUI2);
+
+// });
+
+// =====  ARRAY METHOD PRACTICE (Exercise) ==== //
+
+// 1. summing all the deposits
+const bankDepoitSum = accounts
+  .flatMap(curr => curr.movements)
+  .filter(mov => mov > 0)
+  .reduce((acc, mov) => acc + mov, 0);
+
+// console.log(bankDepoitSum);
+
+// 2. length of deposits >= 1000
+
+const bankDepoitAtleast = accounts
+  .flatMap(mov => mov.movements)
+  .filter(mov => mov >= 1000).length;
+
+// console.log(bankDepoitAtleast);
+
+// length of deposits >= 1000 using reduce()
+
+const bankDepoitAtleastReduce = accounts
+  .flatMap(a => a.movements)
+  .reduce((count, curr) => (curr >= 1000 ? ++count : count), 0);
+
+// console.log(bankDepoitAtleastReduce);
+
+// 3.
+
+const { entered, removed } = accounts
+  .flatMap(mov => mov.movements)
+  .reduce(
+    (sums, cur) => {
+      // cur > 0 ? (sums.entered += cur) : (sums.removed += cur); OR
+      sums[cur > 0 ? 'entered' : 'removed'] += cur;
+
+      return sums;
+    },
+    { entered: 0, removed: 0 }
+  );
+
+// console.log(entered, removed);
+
+// 4.
+
+function convertTitleCase(title) {
+  const capitalize = str => str[0].toUpperCase() + str.slice(1);
+
+  const exceptions = [
+    'a',
+    'an',
+    'is',
+    'and',
+    'with',
+    'but',
+    'the',
+    'on',
+    'in',
+    'or',
+  ];
+
+  const convertTitle = title
+    .toLowerCase()
+    .split(' ')
+    .map(word => (exceptions.includes(word) ? word : capitalize(word)))
+    .join(' ');
+
+  return capitalize(convertTitle);
+}
+
+// console.log(convertTitleCase('this is a nice tittle'));
+// console.log(convertTitleCase('this is a LONG but Not TOO long'));
+// console.log(convertTitleCase('and this is also LONG but Not TOO long'));
+
+// ====== CODING CHALLENGE 4 ===== //
+
+const dogs = [
+  { weight: 22, curFood: 250, owners: ['Alice', 'Bob'] },
+  { weight: 8, curFood: 200, owners: ['Matilda'] },
+  {
+    weight: 13,
+    curFood: 250,
+    owners: ['Sarah', 'John'],
+  },
+  { weight: 32, curFood: 340, owners: ['Micheal'] },
+];
+
+// 1.
+
+dogs.forEach(dog => (dog.recFood = Math.floor(dog.weight ** 0.75 * 28)));
+
+console.log(dogs);
+
+// 2.
+const dogSarah = dogs.find(dog => dog.owners.includes('Sarah'));
+
+console.log(dogSarah);
+
+console.log(
+  `Sarah's dog is eating too ${
+    dogSarah.curFood > dogSarah.recFood ? 'Much' : 'little'
+  } `
+);
+
+// 3.
+
+const ownersEatTooMuch = dogs
+  .filter(dog => dog.curFood > dog.recFood)
+  .map(dog => dog.owners)
+  .flat();
+console.log(ownersEatTooMuch);
+
+const ownersEatTooLittle = dogs
+  .filter(dog => dog.curFood < dog.recFood)
+  .map(dog => dog.owners)
+  .flat();
+console.log(ownersEatTooMuch);
+
+// 4.
+
+console.log(`${ownersEatTooMuch.join(' and ')}'s dogs eat too much`);
+
+console.log(` ${ownersEatTooLittle.join(' and ')}'s dogs eat little`);
+
+// 5.
+console.log(dogs.some(dog => dog.curFood === dog.recFood));
+
+
+// 6.
+const checkEatingOk = dog => dog.curFood >= dog.recFood * 0.9 && dog.curFood >= dog.recFood * 1.1;
+console.log(dogs.some(checkEatingOk));
+
+// 7.
+
+console.log(dogs.filter(checkEatingOk));
+
+// 8.
+
+const dogsSorted = dogs.slice().sort((a, b) => a.recFood - b.recFood);
+
+console.log(dogsSorted);
+
+
+
 
