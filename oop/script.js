@@ -381,53 +381,63 @@
 
 // // Classes Example
 
+// class Account {
+//   constructor(owner, currency, pin, movements) {
+//     this.owner = owner;
+//     this.currency = currency;
+//     this._pin = pin;
+//     this.movements = [];
+//     this.locale = navigator.language;
+
+//     console.log(`Thanks for opening Account!`);
+//   }
+
+//   //  public interface
+
+//   getMovement() {
+//     return this.movements;
+//   }
+
+//   deposit(amount) {
+//     //  (_)protected
+//     this.movements.push(amount);
+//   }
+
+//   withdrawl(amount) {
+//     this.deposit(-amount);
+//   }
+//   _approveLoan(amount) {
+//     return true;
+//   }
+
+//   requestLoan(amount) {
+//     if (this.approveLoan(amount)) {
+//       this.deposit(amount);
+//       console.log(`Loan Approved`);
+//     }
+//   }
+// }
+
+// const acc1 = new Account('Abdurrahman', 'NGN', 2580);
+
+// acc1.deposit(250);
+// acc1.withdrawl(150);
+// acc1.requestLoan(1000);
+
+// console.log(acc1.pin);
+// console.log(acc1);
+// console.log(acc1._movements);
+// console.log(acc1.getMovement());
+
+// Encapsulation in js
+
 class Account {
-  constructor(owner, currency, pin, movements) {
-    this.owner = owner;
-    this.currency = currency;
-    this._pin = pin;
-    this._movements = []
-    this.locale = navigator.language;
+  //1 public field
+  locale = navigator.language;
+  movements = [];
 
-    console.log(`Thanks for opening Account!`);
+  //  private fields
+  #movement
 
-    
-  }
 
-  //  public interface
-
-  getMovement() {
-    return this._movements;
-  }
-
-  deposit(amount) {
-    //  (_)protected
-    this._movements.push(amount);
-  }
-
-  withdrawl(amount) {
-    this.deposit(-amount);
-  }
-  _approveLoan(amount) {
-    return true;
-  }
-
-  requestLoan(amount) {
-    if (this.approveLoan(amount)) {
-      this.deposit(amount);
-      console.log(`Loan Approved`);
-      
-    }
-  }
 }
-
-const acc1 = new Account('Abdurrahman', 'NGN', 2580, );
-
-acc1.deposit(250);
-acc1.withdrawl(150);
-acc1.requestLoan(1000);
-
-console.log(acc1.pin);
-console.log(acc1);
-console.log(acc1._movements)
-console.log(acc1.getMovement());
